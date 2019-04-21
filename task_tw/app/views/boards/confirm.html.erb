@@ -1,0 +1,13 @@
+<h1>以下の内容で投稿する</h1>
+<%= form_with(model: @board, local:true,url: boards_path) do |form| %>
+    <div>
+    <%= form.hidden_field :content %>  
+    </div>
+    <p>内容：<%= @board.content %></p>
+<%= form.submit "投稿する" %>
+<% end %>
+
+<%= form_with(model: @board, url: new_board_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "もどる" ,name: 'back' %>
+<% end %>
