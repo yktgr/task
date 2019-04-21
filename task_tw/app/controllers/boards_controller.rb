@@ -15,7 +15,7 @@ end
 def create
     @board = Board.new(boards_params)
     if @board.save
-    redirect_to boards_path
+    redirect_to boards_path,notice:"投稿しました！"
     else
     render 'new'
     end
@@ -27,7 +27,7 @@ end
 
 def update
     if @board.update(boards_params)
-     redirect_to boards_path
+     redirect_to boards_path,notice:"投稿を編集しました"
     else
      render 'edit'
     end
@@ -35,7 +35,7 @@ end
 
 def destroy
     @board.destroy
-    redirect_to boards_path
+    redirect_to boards_path,notice:"投稿を削除しました"
 end
 
 def confirm
